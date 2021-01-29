@@ -98,6 +98,18 @@ target_link_libraries(_rclpy PRIVATE
 )
 configure_build_install_location(_rclpy)
 
+# Split from main extension and converted to pybind11
+pybind11_add_module(_rclpy_pybind11 SHARED
+  src/rclpy/_rclpy_pybind11.cpp
+)
+target_include_directories(_rclpy_pybind11 PRIVATE
+  src/rclpy/
+)
+target_link_libraries(_rclpy_pybind11 PRIVATE
+  rclpy_common
+)
+configure_build_install_location(_rclpy_pybind11)
+
 # Extension with code for Action servers and clients
 pybind11_add_module(_rclpy_action SHARED
   src/rclpy/_rclpy_action.c
