@@ -19,8 +19,6 @@ from rcl_interfaces.srv import GetParameters
 import rclpy
 import rclpy.executors
 from rclpy.impl.implementation_singleton import rclpy_implementation as _rclpy
-from rclpy.utilities import get_rmw_implementation_identifier
-
 
 # TODO(sloretz) Reduce fudge once wait_for_service uses node graph events
 TIME_FUDGE = 0.3
